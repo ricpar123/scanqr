@@ -10,19 +10,20 @@
           href="../css/style.css">
     <title>QR Code Scanner / Reader
     </title>
+    <script src="html5-qrcode.min.js"></script>
+    
 </head>
 
 <body>
     <div class="container">
         <h1>Scan QR Codes</h1>
-        <div class="section">
-            <div id="my-qr-reader">
-            </div>
-        </div>
+           <div id="reader"></div>
     </div>
-    <script
-        src="https://unpkg.com/html5-qrcode">
-    </script>
+    <button id="start-reading">Iniciar Lectura</button>
+    <button id="stop-reading">Detener Lectura</button>
+    <div id="result"></div>
+    
+    
     <script src="../js/script.js"></script>
 </body>
 
