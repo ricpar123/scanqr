@@ -1,4 +1,4 @@
-// script.js file
+// t.js file
 
 function domReady(fn) {
     if (
@@ -15,7 +15,9 @@ domReady(function () {
 
     // If found you qr code
     function onScanSuccess(decodeText, decodeResult) {
-        alert("You Qr is : " + decodeText, decodeResult);
+        alert('codigo QR leido');
+        alert('Texto', decodeText);
+        alert('Resultado', decodeResult);
     }
 
     let htmlscanner = new Html5QrcodeScanner(
