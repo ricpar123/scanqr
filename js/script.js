@@ -24,13 +24,11 @@ domReady(function () {
     );
     htmlscanner.render(onScanSuccess);
 
-    document.getElementById('my-qr-reader').addEventListener('click', update);
+   
 });
 
+document.getElementById('my-qr-reader').addEventListener('click', update);
 function update(){
-    var result = document.getElementById('my-qr-reader').innerText;
-    document.getElementById('resultado').value = result;
-    alert('resultado:', result);
+    var qrcode = document.getElementById('my-qr-reader').innerText;
+    alert('qrcode', qrcode);
 }
-
-update();
