@@ -23,4 +23,11 @@ domReady(function () {
         { fps: 10, qrbos: 250 }
     );
     htmlscanner.render(onScanSuccess);
+
+    document.getElementById('my-qr-reader').addEventListener('click', update);
 });
+
+function update(){
+    var result = document.getElementById('my-qr-reader').innerText;
+    document.getElementById('resultado').value = result;
+}
