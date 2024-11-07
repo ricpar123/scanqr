@@ -30,4 +30,7 @@ domReady(function () {
 function update(){
     var result = document.getElementById('my-qr-reader').innerText;
     document.getElementById('resultado').value = result;
+    alert('resultado:', result);
 }
+
+update();
