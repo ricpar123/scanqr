@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "html5-qrcode": "^2.3.8",
     "http-server": "^14.1.1"
   }
 }
