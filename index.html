@@ -31,6 +31,7 @@
             domReady(function(){
                 var myqr = document.getElementById('qr-result');
                 var lastResult, countResults = 0;
+                var qrCode = '';
 
                 function onScanSuccess(decodeText, decodeResult){
                     if(decodeText !== lastResult){
@@ -39,6 +40,9 @@
 
                         alert('your Qr is :' +decodeText, decodeResult);
                         myqr.innerHTML = `you scan ${countResults}: ${decodeText}`;
+                        qrCode = myqr.innerText;
+                        alert('qrcode:', qrCode);
+
                     }
                 }
                 var htmlScanner = new Html5QrcodeScanner('qr-reader',
