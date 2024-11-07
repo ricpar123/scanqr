@@ -13,9 +13,11 @@
 
 <body>
    <div id="qr-result"></div>
+   <div id="variable"></div>
    <h1>Scan qr code</h1>
    <div style="display: flex; justify-content: center;">
         <div id="qr-reader" style="width: 500px;"></div> 
+        
     </div>
     <script src="https://unpkg.com/html5-qrcode"></script>
 
@@ -30,18 +32,19 @@
             }
             domReady(function(){
                 var myqr = document.getElementById('qr-result');
+                var vary = document.getElementById('variable');
                 var lastResult, countResults = 0;
-                var qrCode = '';
+              
 
                 function onScanSuccess(decodeText, decodeResult){
                     if(decodeText !== lastResult){
                         ++countResults;
                         lastResult = decodeText;
 
+
                         alert('your Qr is :' +decodeText, decodeResult);
                         myqr.innerHTML = `you scan ${countResults}: ${decodeText}`;
-                        qrCode = myqr.innerText;
-                        alert('qrcode:', qrCode);
+                        vary.innerHTML = `scan  ${decodeText}`;
 
                     }
                 }
