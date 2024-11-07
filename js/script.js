@@ -12,11 +12,11 @@ function domReady(fn) {
 }
 
 domReady(function () {
-let qr = '';
+
     // If found you qr code
     function onScanSuccess(decodeText, decodeResult) {
         alert('qrcode' + decodeText, decodeResult);
-        qr = + decodeText, decodeResult;
+        let qr = + decodeText, decodeResult;
         alert(qr);
     }
 
