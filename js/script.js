@@ -15,6 +15,7 @@ var htmlQrcode = new Html5QrcodeScanner(
 
 function onScanSuccess(decodedText, decodedResult) {
     alert(`Scan result: ${decodedText}`, decodedResult );
+    qrCodeResult = readerDiv.innerText;
 
     htmlQrcode.clear();
 
