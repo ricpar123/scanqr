@@ -1,6 +1,6 @@
 // script.js file
 
-const { Html5Qrcode } = require("html5-qrcode");
+
 
 const readerDiv = document.getElementById("qr-reader");
 const startReading = document.getElementById("start");
