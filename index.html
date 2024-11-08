@@ -8,53 +8,24 @@
           content="width=device-width, initial-scale=1.0">
     
     <title>QR Code Scanner / Reader</title>
+    <script src="./lib/html5-qrcode.min.js"></script>
     
 </head>
 
 <body>
    <div id="qr-result"></div>
    <div id="variable"></div>
+   <button id="start">Iniciar lectura</button>
+   <button id="stop">Detener lectura</button>
+
    <h1>Scan qr code</h1>
    <div style="display: flex; justify-content: center;">
         <div id="qr-reader" style="width: 500px;"></div> 
         
     </div>
-    <script src="https://unpkg.com/html5-qrcode"></script>
+    <script src="./js/script.js"></script>
 
-    <script>
-        function domReady(fn) {
-            if(document.readyState == 'complete' || document.readyState == 
-                'interactive') {
-                    setTimeout(fn,1)
-                } else {
-                    document-addEventListener('DOMContentLoaded', fn)
-                }
-            }
-            domReady(function(){
-                var myqr = document.getElementById('qr-result');
-                var vary = document.getElementById('variable');
-                var lastResult, countResults = 0;
-              
-
-                function onScanSuccess(decodeText, decodeResult){
-                    if(decodeText !== lastResult){
-                        ++countResults;
-                        lastResult = decodeText;
-
-
-                        alert('your Qr is :' +decodeText, decodeResult);
-                        myqr.innerHTML = `you scan ${countResults}: ${decodeText}`;
-                        vary.innerHTML = `scan  ${decodeText}`;
-
-                    }
-                }
-                var htmlScanner = new Html5QrcodeScanner('qr-reader',
-                    {fps:10, qrbox:250}
-                );
-                htmlScanner.render(onScanSuccess)
-            })
-        
-    </script>
+    
 </body>
 
 </html>

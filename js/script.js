@@ -1,36 +1,30 @@
 // script.js file
 
-function domReady(fn) {
-    if (
-        document.readyState === "complete" ||
-        document.readyState === "interactive"
-    ) {
-        setTimeout(fn, 1000);
-    } else {
-        document.addEventListener("DOMContentLoaded", fn);
-    }
-}
+const { Html5Qrcode } = require("html5-qrcode");
 
-domReady(function () {
+const readerDiv = document.getElementById("qr-reader");
+const startReading = document.getElementById("start");
+const stopReading = document.getElementById("stop");
+const qrCodeResult = document.getElementById("qr-result");
 
-    // If found you qr code
-    function onScanSuccess(decodeText, decodeResult) {
-        alert('qrcode' + decodeText, decodeResult);
-        let qr = + decodeText, decodeResult;
-        alert(qr);
-    }
+let qrCodeReader;
 
-    let htmlscanner = new Html5QrcodeScanner(
-        "my-qr-reader",
-        { fps: 10, qrbos: 250 }
-    );
-    htmlscanner.render(onScanSuccess);
+startReading.addEventListener("click", () => {
+    qrCodeReader = new Html5Qrcode(readerDiv);
+    qrCodeReader.start({
+        facingMode:"environment",
+        fps:10,
+        qrbox:{ width:250, height:250}}, (decodedText, decodedResult)=>{
+            console.log("Codigo QR leido");
+            console.log("Texto:", decodedText);
+            console.log("Resultado:", decodedResult);
+            qrCodeResult.innerText = decodedText;
+            localStorage.setItem("qrcodeResult", decodedText);
+        }, (error) => {
+            console.log(error);
+        });
+    });
 
-   
-});
-
-document.getElementById('my-qr-reader').addEventListener('click', update);
-function update(){
-    var qrcode = document.getElementById('my-qr-reader').innerText;
-    alert('qrcode', qrcode);
-}
+    stopReading.addEventListener("click", () => {
+        qrCodeReader.stop();
+    });
