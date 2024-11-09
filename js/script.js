@@ -19,12 +19,13 @@ function onScanSuccess(decodedText, decodedResult) {
     alert(`Scan result: ${decodedText}`, decodedResult );
     qrCodeResult = readerDiv.innerText;
     myqr = qrCodeResult;
-
+   
     htmlQrcode.clear();
+
+    window.location.href= "../html/page1.html";
 
 }
 
 
 htmlQrcode.render(onScanSuccess);
 
-window.location.href= "../html/page1.html";
