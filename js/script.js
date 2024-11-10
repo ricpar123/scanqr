@@ -11,19 +11,23 @@ const qrCodeResult = document.getElementById("qr-result");
 var myqr = [];
 
 
-var htmlQrcode = new Html5QrcodeScanner(
-    "qr-reader", { fps:10, qrbox:300}
-);
+
 
 function onScanSuccess(decodedText, decodedResult) {
-    alert(`Scan result: ${decodedText}`, decodedResult );
-    qrCodeResult = readerDiv.innerText;
-    myqr = qrCodeResult;
+    myqr = decodedText;
+    window.location.href= "../html/page1.html";
+
+    var htmlQrcode = new Html5QrcodeScanner(
+        "qr-reader", { fps:10, qrbox:300}
+    );
+
+    htmlQrcode.render(onScanSuccess);
+
+   
    
     htmlQrcode.clear();
 
-    window.location.href= "../html/page1.html";
-
+    
 }
 
 
