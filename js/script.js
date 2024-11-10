@@ -31,5 +31,5 @@ function onScanSuccess(decodedText, decodedResult) {
 }
 
 
-htmlQrcode.render(onScanSuccess);
+
 
