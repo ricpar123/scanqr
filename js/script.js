@@ -25,7 +25,7 @@ domReady(function() {
     //    myqr = decodedText;
     //    window.location.href= "../html/page1.html";
         myqr = decodedText;
-        window.location.href= '../page1.html';
+        
 
 
         alert('qrtext: ' + decodedText, decodedResult );
@@ -35,6 +35,8 @@ domReady(function() {
         );
 
         htmlQrcode.render(onScanSuccess);
+
+        window.location.href= './html/page1.html';
     
     });
 
