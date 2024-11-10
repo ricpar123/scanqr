@@ -11,14 +11,14 @@ function domReady(fn) {
 } 
  
 
-/*
+
 
 const readerDiv = document.getElementById("qr-reader");
 
 const qrCodeResult = document.getElementById("qr-result");
 
 var myqr = [];
-*/
+
 domReady(function() {
 
     function onScanSuccess (decodedText, decodedResult) {
