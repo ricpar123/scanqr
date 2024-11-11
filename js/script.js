@@ -1,4 +1,5 @@
 // script.js file
+
 function domReady(fn) { 
     if ( 
         document.readyState === "complete" || 
@@ -21,19 +22,29 @@ var myqr = [];
 
 domReady(function() {
 
+    var htmlQrcode = new Html5QrcodeScanner(
+        "qr-reader", { fps:10, qrbox:200}
+    );
+
+
     function onScanSuccess (decodedText, decodedResult) {
     //    myqr = decodedText;
     //    window.location.href= "../html/page1.html";
-        myqr = decodedText;
-        window.location.href= './html/page1.html';
+        
+        
+        alert('qrtext: ' + decodedText);
+        qrCodeResult.innerText = decodedText;
+        myqr = qrCodeResult.innerText
+        localStorage.setItem('qrcode', myqr);
+        alert('result:' + qrCodeResult.innerText);
+        alert('mi-variable: ' + myqr);
+       
+    }
         
 
+        
 
-        alert('qrtext: ' + decodedText, decodedResult );
-    }
-        var htmlQrcode = new Html5QrcodeScanner(
-            "qr-reader", { fps:10, qrbox:300}
-        );
+        
 
         htmlQrcode.render(onScanSuccess);
 
